@@ -66,6 +66,7 @@
     else {
         
         //NSArray *resources = allRates[@"fields"];
+        // TEST1111111
         
         for (NSDictionary *dictionary in allRates)
         {
