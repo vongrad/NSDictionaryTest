@@ -66,18 +66,22 @@
     else {
         
         //NSArray *resources = allRates[@"fields"];
-        // TEST1111111
         
-        for (NSDictionary *dictionary in allRates)
+        //for (NSDictionary *dictionary in [[allRates valueForKey:@"list"] valueForKey:@"resources"])
+        for (NSDictionary *dictionary in [allRates valueForKeyPath:@"list.resources"])
         {
             //NSString *arrayString = dictionary[@"fields"];
+            //NSData *data = [arrayString dataUsingEncoding:NSUTF8StringEncoding];
+            //NSDictionary *resources = [dictionary objectForKey:@"resources"];
             
-                //NSData *data = [arrayString dataUsingEncoding:NSUTF8StringEncoding];
-                NSLog(@"%@", [[[[(NSMutableDictionary *)(NSMutableArray *)[dictionary objectForKey:@"resources"]valueForKey:0]objectForKey:@"resource"]objectForKey:@"fields"]objectForKey:@"symbol"]);
-                
-                //NSLog(@"----");
-                //NSLog(@"name: %@", theRate[@"name"] );
-                //NS//Log(@"price: %@", theRate[@"price"] );
+            //NSLog(@"Currency: %@", [[[dictionary valueForKey:@"resource"]valueForKey:@"fields"]valueForKey:@"symbol"]);
+            NSLog(@"Currency: %@", [dictionary valueForKeyPath:@"resource.fields.symbol"]);
+            NSLog(@"Price: %@", [[[dictionary valueForKey:@"resource"] valueForKey:@"fields"]valueForKey:@"price"]);
+            
+            
+            //NSLog(@"----");
+            //NSLog(@"name: %@", theRate[@"name"] );
+            //NS//Log(@"price: %@", theRate[@"price"] );
                 
         
             
